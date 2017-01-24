@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5b2f2bd-50a1-4b92-8f08-19f8821ce624" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doubanMovie.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/doubanMovie.py" afterPath="$PROJECT_DIR$/doubanMovie.py" />
     </list>
     <ignored path="small_spiders.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="doubanMovie.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/doubanMovie.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1256">
-              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+            <state relative-caret-position="302">
+              <caret line="96" column="32" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
               <folding>
                 <element signature="e#38#78#0" expanded="true" />
               </folding>
@@ -439,8 +438,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/doubanMovie.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1256">
-          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        <state relative-caret-position="302">
+          <caret line="96" column="32" selection-start-line="96" selection-start-column="32" selection-end-line="96" selection-end-column="32" />
           <folding>
             <element signature="e#38#78#0" expanded="true" />
           </folding>

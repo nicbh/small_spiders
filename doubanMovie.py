@@ -10,8 +10,9 @@ def getTime():
 
 # reload(sys)
 # sys.setdefaultencoding('utf-8')
+filehome = ''
 while True:
-    with open('log.txt', 'a') as log:
+    with open(filehome + 'log.txt', 'a') as log:
         log.write('Retrieve Start at ' + getTime() + '\n')
 
 
@@ -93,7 +94,7 @@ while True:
                 infos.append(info)
             filename = getTime()
             filename = filename[:filename.find(' ')] + '.txt'
-            with open(filename, 'a') as f:
+            with open(filehome + filename, 'a') as f:
                 for i in infos:
                     f.write(json.dumps(i, ensure_ascii=False) + '\n')
                 f.write('\n')
