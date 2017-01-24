@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # coding=utf-8
-import urllib2, sys, re, json, time, ssl
+import urllib2, sys, re, json, time, ssl, platform
 from collections import OrderedDict
 
 
@@ -10,7 +10,9 @@ def getTime():
 
 # reload(sys)
 # sys.setdefaultencoding('utf-8')
-filehome = '/mnt/file/doubanMovie/'
+filehome = ''
+if (platform.system() == "Linux"):
+    filehome = '/mnt/file/doubanMovie/'
 while True:
     with open(filehome + 'log.txt', 'a') as log:
         log.write('Retrieve Start at ' + getTime() + '\n')
@@ -63,34 +65,37 @@ while True:
                 html = getHtml('movie.douban.com/subject/' + m)
                 p = re.compile(r'<h1>\s*<span property="v:itemreviewed">[\s\S]*?<div id="interest_sect_level"')
                 item = p.findall(html)[0]
-                info = OrderedDict()
-                info['no'] = m
-                p = re.compile(r'<h1>[\s\S]*?</h1>')
-                item1 = p.findall(item)[0]
-                p1 = re.compile(r'(?<=.">)[\s\S]*?(?=</)')
-                result = p1.findall(item1)
-                aaaaa = result[0]
-                print aaaaa
-                info['name'] = result[0]
-                info['year'] = result[1][1:-1]
-                p = re.compile(r'<span property="v:initialReleaseDate"[\s\S]*?</span><br/>')
-                temp = p1.findall(p.findall(item)[0])
-                item1 = '/'.join(temp)
-                info['release'] = item1
-                p = re.compile(r'<div id="interest_sectl">[\s\S]*?<div id="interest_sect_level"')
-                item = p.findall(item)[0]
-                p = re.compile(r'average">.*?<')
-                p1 = re.compile(r'\d+\.\d+')
-                info['average'] = p1.findall(p.findall(item)[0])[0]
-                p = re.compile(r'votes">\d*?<')
-                p1 = re.compile(r'\d+')
-                info['sum'] = p1.findall(p.findall(item)[0])[0]
-                p = re.compile(r'<span class="stars5[\s\S]*?<div class="rating')
-                item = p.findall(item)[0]
-                p = re.compile(r'\d+\.\d+%')
-                info['rate_level'] = p.findall(item)
-                info['time'] = getTime()
-                infos.append(info)
+                p = re.compile(r'property="v:average">.*?</')
+                p1 = re.compile(r'\d')
+                if len(p1.findall(p.findall(item)[0])) > 0:
+                    info = OrderedDict()
+                    info['no'] = m
+                    p = re.compile(r'<h1>[\s\S]*?</h1>')
+                    item1 = p.findall(item)[0]
+                    p1 = re.compile(r'(?<=.">)[\s\S]*?(?=</)')
+                    result = p1.findall(item1)
+                    aaaaa = result[0]
+                    print aaaaa
+                    info['name'] = result[0]
+                    info['year'] = result[1][1:-1]
+                    p = re.compile(r'<span property="v:initialReleaseDate"[\s\S]*?</span><br/>')
+                    temp = p1.findall(p.findall(item)[0])
+                    item1 = '/'.join(temp)
+                    info['release'] = item1
+                    p = re.compile(r'<div id="interest_sectl">[\s\S]*?<div id="interest_sect_level"')
+                    item = p.findall(item)[0]
+                    p = re.compile(r'average">.*?<')
+                    p1 = re.compile(r'\d+\.\d+')
+                    info['average'] = p1.findall(p.findall(item)[0])[0]
+                    p = re.compile(r'votes">\d*?<')
+                    p1 = re.compile(r'\d+')
+                    info['sum'] = p1.findall(p.findall(item)[0])[0]
+                    p = re.compile(r'<span class="stars5[\s\S]*?<div class="rating')
+                    item = p.findall(item)[0]
+                    p = re.compile(r'\d+\.\d+%')
+                    info['rate_level'] = p.findall(item)
+                    info['time'] = getTime()
+                    infos.append(info)
             log.write('Start to record\n')
             filename = getTime()
             filename = filename[:filename.find(' ')] + '.txt'
