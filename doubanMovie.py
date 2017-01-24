@@ -91,6 +91,7 @@ while True:
                 info['rate_level'] = p.findall(item)
                 info['time'] = getTime()
                 infos.append(info)
+            log.write('Start to record\n')
             filename = getTime()
             filename = filename[:filename.find(' ')] + '.txt'
             with open(filehome + filename, 'a') as f:
