@@ -67,7 +67,8 @@ while True:
                 item = p.findall(html)[0]
                 p = re.compile(r'property="v:average">.*?</')
                 p1 = re.compile(r'\d')
-                if len(p1.findall(p.findall(item)[0])) > 0:
+                ttt=p.findall(item)
+                if len(p1.findall(ttt[0])) > 0:
                     info = OrderedDict()
                     info['no'] = m
                     p = re.compile(r'<h1>[\s\S]*?</h1>')
@@ -90,7 +91,7 @@ while True:
                     p = re.compile(r'votes">\d*?<')
                     p1 = re.compile(r'\d+')
                     info['sum'] = p1.findall(p.findall(item)[0])[0]
-                    p = re.compile(r'<span class="stars5[\s\S]*?<div class="rating')
+                    p = re.compile(r'<span class="stars5[\s\S]*?<br />\s*</div>')
                     item = p.findall(item)[0]
                     p = re.compile(r'\d+\.\d+%')
                     info['rate_level'] = p.findall(item)
