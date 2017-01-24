@@ -10,7 +10,7 @@ def getTime():
 
 # reload(sys)
 # sys.setdefaultencoding('utf-8')
-filehome = ''
+filehome = '/mnt/file/doubanMovie/'
 while True:
     with open(filehome + 'log.txt', 'a') as log:
         log.write('Retrieve Start at ' + getTime() + '\n')
@@ -59,7 +59,6 @@ while True:
                 p = re.compile(r'(?<=subject/)\d+')
                 movie.append(p.findall(m)[0])
             infos = []
-            movie = movie[0:2]
             for m in movie:
                 info = OrderedDict()
                 info['no'] = m
@@ -105,4 +104,4 @@ while True:
             log.write('Error: Network Connection Error. ' + getTime() + '\n')
             print e
         log.write('Retrieve Finish at ' + getTime() + '\n\n')
-    time.sleep(1)
+    time.sleep(3600)
