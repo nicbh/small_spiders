@@ -60,11 +60,11 @@ while True:
                 movie.append(p.findall(m)[0])
             infos = []
             for m in movie:
-                info = OrderedDict()
-                info['no'] = m
                 html = getHtml('movie.douban.com/subject/' + m)
                 p = re.compile(r'<h1>\s*<span property="v:itemreviewed">[\s\S]*?<div id="interest_sect_level"')
                 item = p.findall(html)[0]
+                info = OrderedDict()
+                info['no'] = m
                 p = re.compile(r'<h1>[\s\S]*?</h1>')
                 item1 = p.findall(item)[0]
                 p1 = re.compile(r'(?<=.">)[\s\S]*?(?=</)')
