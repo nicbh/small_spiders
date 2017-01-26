@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # coding=utf-8
-import urllib2, re, json, time, ssl, platform, gzip, StringIO
+import urllib2, re, json, time, ssl, platform, gzip, StringIO, sys
 from collections import OrderedDict
 
 
@@ -54,8 +54,9 @@ def getHtml(url, log, isjson=False, isssl=True):
 
 
 if (__name__ == '__main__'):
-    # reload(sys)
-    # sys.setdefaultencoding('utf-8')
+    print 'dm running'
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
     filehome = ''
     if (platform.system() == "Linux"):
         filehome = '/mnt/file/doubanMovie/'

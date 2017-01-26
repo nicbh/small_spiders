@@ -5,6 +5,7 @@ from collections import OrderedDict
 from doubanMovie import getHtml, getTime
 
 if __name__ == '__main__':
+    print 'cbo running'
     reload(sys)
     sys.setdefaultencoding('utf-8')
     filehome = ''
