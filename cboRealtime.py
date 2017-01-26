@@ -21,7 +21,11 @@ if __name__ == '__main__':
             lst = []
             infos = OrderedDict()
             timestr = getTime(timestamp)
-            lst.append({'sum': items['data1'][0]['sumBoxOffice'], 'time': timestr})
+            item = OrderedDict()
+            item['name'] = 'sum'
+            item['sum'] = items['data1'][0]['sumBoxOffice']
+            item['time'] = timestr
+            lst.append(item)
             for l in items['data2']:
                 item = OrderedDict()
                 item['name'] = l['MovieName']
