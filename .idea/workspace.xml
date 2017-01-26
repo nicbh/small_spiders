@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5b2f2bd-50a1-4b92-8f08-19f8821ce624" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cboRealtime.py" afterPath="$PROJECT_DIR$/cboRealtime.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/movieFilter.py" afterPath="$PROJECT_DIR$/movieFilter.py" />
     </list>
     <ignored path="small_spiders.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="movieFilter.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="movieFilter.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/movieFilter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
-              <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+            <state relative-caret-position="133">
+              <caret line="10" column="80" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
               <folding>
                 <element signature="e#38#68#0" expanded="true" />
               </folding>
@@ -52,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cboRealtime.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cboRealtime.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cboRealtime.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
+            <state relative-caret-position="190">
+              <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
               <folding>
                 <element signature="e#38#79#0" expanded="true" />
               </folding>
@@ -81,8 +81,8 @@
       <list>
         <option value="$PROJECT_DIR$/log.txt" />
         <option value="$PROJECT_DIR$/doubanMovie.py" />
-        <option value="$PROJECT_DIR$/movieFilter.py" />
         <option value="$PROJECT_DIR$/cboRealtime.py" />
+        <option value="$PROJECT_DIR$/movieFilter.py" />
       </list>
     </option>
   </component>
@@ -609,22 +609,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/movieFilter.py">
+    <entry file="file://$PROJECT_DIR$/cboRealtime.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
-          <caret line="36" column="5" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+        <state relative-caret-position="190">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
           <folding>
-            <element signature="e#38#68#0" expanded="true" />
+            <element signature="e#38#79#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cboRealtime.py">
+    <entry file="file://$PROJECT_DIR$/movieFilter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
+        <state relative-caret-position="133">
+          <caret line="10" column="80" selection-start-line="10" selection-start-column="80" selection-end-line="10" selection-end-column="80" />
           <folding>
-            <element signature="e#38#79#0" expanded="true" />
+            <element signature="e#38#68#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -8,7 +8,7 @@ sys.setdefaultencoding('utf-8')
 filehome = os.getcwd()
 if platform.system() == "Linux":
     filehome = '/mnt/file/'
-    if raw_input('Please input the dir(doubanMovie as 1 and cbo as 2): '):
+    if raw_input('Please input the dir(doubanMovie as 1 and cbo as 2): ').strip() == '1':
         filehome = filehome + 'doubanMovie'
     else:
         filehome = filehome + 'cbo'
