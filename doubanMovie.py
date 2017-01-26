@@ -4,8 +4,8 @@ import urllib2, re, json, time, ssl, platform, gzip, StringIO, sys
 from collections import OrderedDict
 
 
-def getTime():
-    return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+def getTime(timestamp=time.time()):
+    return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(timestamp))
 
 
 def getHtml(url, log, isjson=False, isssl=True):

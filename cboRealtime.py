@@ -14,12 +14,14 @@ if __name__ == '__main__':
     with open(filehome + 'cbolog.txt', 'a') as log:
         log.write('Retrieve Start at ' + getTime() + '\n')
         try:
-            url = 'www.cbooo.cn/BoxOffice/GetHourBoxOffice?d=%d' % time.time()
+            timestamp = time.time()
+            url = 'www.cbooo.cn/BoxOffice/GetHourBoxOffice?d=%d' % timestamp
             html = getHtml(url, log, True, False)
             items = json.loads(html, 'utf-8')  # , object_pairs_hook=OrderedDict)
-            infos = OrderedDict()
-            infos['sum'] = items['data1'][0]['sumBoxOffice']
             lst = []
+            infos = OrderedDict()
+            timestr = getTime(timestamp)
+            lst.append({'sum': items['data1'][0]['sumBoxOffice'], 'time': timestr})
             for l in items['data2']:
                 item = OrderedDict()
                 item['name'] = l['MovieName']
@@ -27,13 +29,16 @@ if __name__ == '__main__':
                 item['boxper'] = l['boxPer']
                 item['day'] = l['movieDay']
                 item['sum'] = l['sumBoxOffice']
+                item['time'] = timestr
                 lst.append(item)
+            print lst
             infos['list'] = lst
             log.write('Start to record\n')
             filename = getTime()
             filename = filename[:filename.find(' ')] + '.txt'
             with open(filehome + filename, 'a') as f:
-                f.write(json.dumps(infos, ensure_ascii=False) + '\n')
+                for i in lst:
+                    f.write(json.dumps(i, ensure_ascii=False) + '\n')
                 f.write('\n')
             log.write('Record success\n')
 
