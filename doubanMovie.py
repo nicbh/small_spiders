@@ -26,7 +26,7 @@ def getHtml(url, log, isjson=False, isssl=True):
         'Referer': None
     }
 
-    req_timeout = 5
+    req_timeout = 20
     if isssl:
         url = 'https://' + url
     else:
@@ -34,7 +34,7 @@ def getHtml(url, log, isjson=False, isssl=True):
     req = urllib2.Request(url, None, req_header)
     if isjson:
         req.add_header('X-Requested-With', 'XMLHttpRequest')
-    for times in range(5):
+    for times in range(8):
         try:
             time.sleep(0.1)
             log.write('Try to connect ' + url + ' : ')
@@ -47,6 +47,7 @@ def getHtml(url, log, isjson=False, isssl=True):
             break
         except (urllib2.URLError, ssl.SSLError) as e:
             log.write('failed.\n')
+            time.sleep(times)
             print e
     else:
         raise urllib2.URLError, '5 timeout'
