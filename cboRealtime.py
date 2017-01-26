@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # coding=utf-8
-import urllib2, re, json, time, ssl, platform, sys, StringIO, gzip
+import urllib2, json, time, platform, sys
 from collections import OrderedDict
 from doubanMovie import getHtml, getTime
 
@@ -15,9 +15,7 @@ if __name__ == '__main__':
         try:
             url = 'www.cbooo.cn/BoxOffice/GetHourBoxOffice?d=%d' % time.time()
             html = getHtml(url, log, True, False)
-            print html
             items = json.loads(html, 'utf-8')  # , object_pairs_hook=OrderedDict)
-            print items
             infos = OrderedDict()
             infos['sum'] = items['data1'][0]['sumBoxOffice']
             lst = []

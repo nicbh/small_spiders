@@ -44,7 +44,7 @@ def getHtml(url, log, isjson=False, isssl=True):
             if resp.info().getheader('Content-Encoding') == 'gzip':
                 stream = StringIO.StringIO(html)
                 html = gzip.GzipFile(fileobj=stream).read()
-                break
+            break
         except (urllib2.URLError, ssl.SSLError) as e:
             log.write('failed.\n')
             print e

@@ -1,0 +1,6 @@
+Retrieve Start at 2017-01-26 20:22:35
+Try to connect http://www.cbooo.cn/BoxOffice/GetHourBoxOffice?d=1485433355 : success.
+Start to record
+Record success
+Retrieve Finish at 2017-01-26 20:22:37
+
