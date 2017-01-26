@@ -35,7 +35,6 @@ if __name__ == '__main__':
                 item['sum'] = l['sumBoxOffice']
                 item['time'] = timestr
                 lst.append(item)
-            print lst
             infos['list'] = lst
             log.write('Start to record\n')
             filename = getTime()
