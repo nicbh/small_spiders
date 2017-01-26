@@ -123,3 +123,4 @@ if (__name__ == '__main__'):
             print e
         log.write('Retrieve Finish at ' + getTime() + '\n\n')
     print getTime()
+    print
