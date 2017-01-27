@@ -16,10 +16,13 @@ if platform.system() == "Linux":
 input = raw_input('Please input the NO or part of name: ')
 os.chdir(filehome)
 files = os.listdir(filehome)
+files.sort()
+print files
 output = []
 for f in files:
     if f.find('-') >= 0:
         with open(filehome + '/' + f, 'r') as f:
+            print f
             for line in f:
                 if len(line.strip()) > 0:
                     item = json.loads(line, 'utf-8', object_pairs_hook=OrderedDict)
