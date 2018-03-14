@@ -1,5 +1,6 @@
 
 import os, time
+print('start at {}'.format(time.asctime(time.localtime(time.time()))))
 ip_list = []
 with open('ip_list', 'r', encoding='utf-8') as file:
 	for line in file:
@@ -43,3 +44,5 @@ if len(lost_list) > 0:
 	server.login(from_addr, auth)
 	server.sendmail(from_addr, [to_addr], msg.as_string())
 	server.quit()
+print('end at {}'.format(time.asctime(time.localtime(time.time()))))
+print('------------------------')
