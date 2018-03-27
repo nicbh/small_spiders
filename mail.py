@@ -4,7 +4,11 @@ print('start at {}'.format(time.asctime(time.localtime(time.time()))))
 ip_list = []
 with open('ip_list', 'r', encoding='utf-8') as file:
 	for line in file:
-		ip_list.append(line.strip())
+                if '#' in line:
+                    line = line[0:line.find('#')]
+                line = line.strip()
+                if len(line) > 0:
+                    ip_list.append(line)
 lost_list = []
 for hostname in ip_list:
 	response = os.system("ping -c 1 " + hostname)
