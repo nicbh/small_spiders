@@ -1,4 +1,5 @@
 # update at 03.27.2018
-144.202.120.176 # Vultr-LA 200~300ms
-207.148.94.82 # Vultr-Tokyo 80~180ms
-47.75.72.9 # aliyun-HK 30~80ms 1¥/GB
+144.202.120.176 # Vultr-LA/200~300ms
+207.148.94.82 # Vultr-Tokyo/80~180ms
+150.95.174.194 # conoha-Tokyo/200ms/native ip in Japan
+47.75.72.9 # aliyun-HK/30~80ms/1¥ for each GB
