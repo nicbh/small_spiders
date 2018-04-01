@@ -20,8 +20,8 @@ with open('ip_list','r',encoding='utf-8') as file:
 		if '#' in line:
 			ipAddr = line[0:line.find('#')].strip()
 			nodeName = line[line.find('#') + 1:].strip()
-			if '/' in nodeName:
-				nodeName = nodeName[0:nodeName.find('/')].strip()
+			# if '/' in nodeName:
+				# nodeName = nodeName[0:nodeName.find('/')].strip()
 		if len(ipAddr) == 0:
 			continue
 		remarks = b_encode(nodeName)
