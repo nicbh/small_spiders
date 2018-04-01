@@ -1,6 +1,9 @@
 import os, base64
-def b_encode(string):
-	return base64.urlsafe_b64encode(string.encode('utf-8')).decode('utf-8').strip('=')
+def b_encode(string, do_strip=True):
+	result = base64.urlsafe_b64encode(string.encode('utf-8')).decode('utf-8')
+	if do_strip is True:
+		result = result.strip('=')
+	return result
 port = '2333'
 protocol = 'origin'
 smethod = 'aes-256-cfb'
@@ -24,5 +27,5 @@ with open('ip_list','r',encoding='utf-8') as file:
 		ssrLink = 'ssr://{}'.format(b_encode(ssrLink))
 		links.append(ssrLink)
 with open('link_list', 'w+', encoding='utf-8') as file:
-	file.write('\n'.join(links))
+	file.write(b_encode('\n'.join(links), False))
  		
