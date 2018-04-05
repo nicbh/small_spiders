@@ -2,13 +2,16 @@
 import os, time
 print('start at {}'.format(time.asctime(time.localtime(time.time()))))
 ip_list = []
+ip_name = {}
 with open('ip_list', 'r', encoding='utf-8') as file:
 	for line in file:
                 if '#' in line:
-                    line = line[0:line.find('#')]
-                line = line.strip()
-                if len(line) > 0:
-                    ip_list.append(line)
+                    ip = line[0:line.find('#')].strip()
+                    name = line[line.find('#')+1:].strip()
+                    name = name[0:name.find('')].strip()
+                if len(ip) > 0:
+                    ip_list.append(ip)
+                    ip_name[ip] = name
 lost_list = []
 for hostname in ip_list:
 	response = os.system("ping -c 1 " + hostname)
@@ -22,7 +25,7 @@ for hostname in ip_list:
 		lost_list.append(hostname)
 print('lost ip list: ', lost_list)
 if len(lost_list) > 0:
-	txt = 'ip {} is unconnected at {}'.format(', '.join(["'{}'".format(ip) for ip in lost_list]), time.asctime(time.localtime(time.time())))
+	txt = 'ip {} is unconnected at {}'.format(', '.join(["{}({})".format(ip, ip_name[ip]) for ip in lost_list]), time.asctime(time.localtime(time.time())))
 	from email import encoders
 	from email.header import Header
 	from email.mime.text import MIMEText
