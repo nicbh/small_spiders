@@ -7,8 +7,8 @@ with open('ip_list', 'r', encoding='utf-8') as file:
 	for line in file:
                 if '#' in line:
                     ip = line[0:line.find('#')].strip()
-                    name = line[line.find('#')+1:].strip()
-                    name = name[0:name.find('')].strip()
+                    name = line[line.find('#') + 1:].strip()
+                    name = name[0:name.find('/')].strip()
                 if len(ip) > 0:
                     ip_list.append(ip)
                     ip_name[ip] = name
