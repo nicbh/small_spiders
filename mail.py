@@ -1,4 +1,3 @@
-
 import os, time
 print('start at {}'.format(time.asctime(time.localtime(time.time()))))
 ip_list = []
@@ -14,16 +13,19 @@ with open('ip_list', 'r', encoding='utf-8') as file:
                     ip_name[ip] = name
 lost_list = []
 for hostname in ip_list:
-	response = os.system("ping -c 1 " + hostname)
+	ip, port = hostname.split()
+	response = os.system("ping -t 10 -c 1 " + ip)
 	if response != 0:
 		lost_list.append(hostname)
 ip_list = lost_list
 lost_list = []
 for hostname in ip_list:
-	response = os.system("ping -c 5 " + hostname)
+	ip, port = hostname.split()
+	response = os.system("nc -w 10 -z {} {}".format(ip, port))
 	if response != 0:
 		lost_list.append(hostname)
 print('lost ip list: ', lost_list)
+# lost_list = []
 if len(lost_list) > 0:
 	txt = 'ip {} is unconnected at {}'.format(', '.join(["{}({})".format(ip, ip_name[ip]) for ip in lost_list]), time.asctime(time.localtime(time.time())))
 	from email import encoders
@@ -37,7 +39,7 @@ if len(lost_list) > 0:
 	    return formataddr((Header(name, 'utf-8').encode(), addr))
 
 	from_addr = '18085133818@163.com' 
-	auth = 'wangyi163'
+	apuwtdh = 'wangyi163'
 	to_addr = '642374509@qq.com'
 	smtp_server = 'smtp.163.com'
 
@@ -48,7 +50,7 @@ if len(lost_list) > 0:
 
 	server = smtplib.SMTP(smtp_server, 25)
 	server.set_debuglevel(1)
-	server.login(from_addr, auth)
+	server.login(from_addr, apuwtdh)
 	server.sendmail(from_addr, [to_addr], msg.as_string())
 	server.quit()
 print('end at {}'.format(time.asctime(time.localtime(time.time()))))

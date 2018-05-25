@@ -4,7 +4,7 @@ def b_encode(string, do_strip=True):
 	if do_strip is True:
 		result = result.strip('=')
 	return result
-port = '2333'
+# port = '2333'
 protocol = 'origin'
 smethod = 'aes-256-cfb'
 obfs = 'plain'
@@ -19,6 +19,9 @@ with open('ip_list','r',encoding='utf-8') as file:
 		nodeName = ''
 		if '#' in line:
 			ipAddr = line[0:line.find('#')].strip()
+			if len(ipAddr) == 0:
+				continue
+			ipAddr, port = ipAddr.split()
 			nodeName = line[line.find('#') + 1:].strip()
 			if '/' in nodeName:
 				nodeName = nodeName[0:nodeName.find('/')].strip()
@@ -26,6 +29,7 @@ with open('ip_list','r',encoding='utf-8') as file:
 			continue
 		remarks = b_encode(nodeName)
 		ssrLink = '{}:{}:{}:{}:{}:{}/?obfsparam=&protoparam=&remarks={}&group={}'.format(ipAddr, port, protocol, smethod, obfs, password, remarks, group)
+		# print(ssrLink)
 		ssrLink = 'ssr://{}'.format(b_encode(ssrLink))
 		links.append(ssrLink)
 with open('link_list', 'w+', encoding='utf-8') as file:
