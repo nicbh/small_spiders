@@ -1,4 +1,9 @@
-import os, time
+import os, time, platform
+platform_info = platform.platform()
+if 'Linux' in platform_info:
+	platform_info = 'linux'
+elif 'Darwin' in platform_info:
+	platform_info = 'macos'
 print('start at {}'.format(time.asctime(time.localtime(time.time()))))
 ip_list = []
 ip_name = {}
@@ -14,7 +19,10 @@ with open('ip_list', 'r', encoding='utf-8') as file:
 lost_list = []
 for hostname in ip_list:
 	ip, port = hostname.split()
-	response = os.system("ping -t 10 -c 1 " + ip)
+	comm = "ping -W 10 -c 1 {}"
+	if platform_info == 'macos':
+		comm = "ping -t 10 -c 1 {}"
+	response = os.system(comm.format(ip))
 	if response != 0:
 		lost_list.append(hostname)
 ip_list = lost_list
