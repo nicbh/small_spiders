@@ -10,7 +10,7 @@ smethod = 'aes-256-cfb'
 obfs = 'plain'
 group = b_encode('zmgay')
 password = b_encode('qawsedrftgyh')
-datestr = '{:0>2}{:0>2}'.format(datetime.datetime.now().month, datetime.datetime.now().day)
+datestr = '-{:0>2}{:0>2}'.format(datetime.datetime.now().month, datetime.datetime.now().day)
 links = []
 with open('ip_list','r',encoding='utf-8') as file:
 	for line in file:
