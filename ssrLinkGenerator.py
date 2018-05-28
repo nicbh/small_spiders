@@ -1,4 +1,4 @@
-import os, base64
+import os, base64, datetime
 def b_encode(string, do_strip=True):
 	result = base64.urlsafe_b64encode(string.encode('utf-8')).decode('utf-8')
 	if do_strip is True:
@@ -10,7 +10,7 @@ smethod = 'aes-256-cfb'
 obfs = 'plain'
 group = b_encode('zmgay')
 password = b_encode('qawsedrftgyh')
-
+datestr = '_{}{}'.format(datetime.datetime.now().month, datetime.datetime.now().day)
 links = []
 with open('ip_list','r',encoding='utf-8') as file:
 	for line in file:
@@ -25,6 +25,7 @@ with open('ip_list','r',encoding='utf-8') as file:
 			nodeName = line[line.find('#') + 1:].strip()
 			if '/' in nodeName:
 				nodeName = nodeName[0:nodeName.find('/')].strip()
+		nodeName += datestr
 		if len(ipAddr) == 0:
 			continue
 		remarks = b_encode(nodeName)
