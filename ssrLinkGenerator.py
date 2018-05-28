@@ -10,7 +10,7 @@ smethod = 'aes-256-cfb'
 obfs = 'plain'
 group = b_encode('zmgay')
 password = b_encode('qawsedrftgyh')
-datestr = '_{}{}'.format(datetime.datetime.now().month, datetime.datetime.now().day)
+datestr = '{:0>2}{:0>2}'.format(datetime.datetime.now().month, datetime.datetime.now().day)
 links = []
 with open('ip_list','r',encoding='utf-8') as file:
 	for line in file:
@@ -25,7 +25,11 @@ with open('ip_list','r',encoding='utf-8') as file:
 			nodeName = line[line.find('#') + 1:].strip()
 			if '/' in nodeName:
 				nodeName = nodeName[0:nodeName.find('/')].strip()
-		nodeName += datestr
+		index = nodeName.find('(')
+		if index == -1:
+			nodeName += datestr
+		else:
+			nodeName = nodeName[0:index] + datestr + nodeName[index:]
 		if len(ipAddr) == 0:
 			continue
 		remarks = b_encode(nodeName)
