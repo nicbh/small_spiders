@@ -26,7 +26,7 @@ ip_list = lost_list
 lost_list = []
 for hostname in ip_list:
 	ip, port = hostname.split()
-	response = os.system("nc -w 10 -z -v {} {}".format(ip, port))
+	response = os.system("nc -w 20 -z -v {} {}".format(ip, port))
 	if response != 0:
 		lost_list.append(hostname)
 print('lost ip list: ', lost_list)
