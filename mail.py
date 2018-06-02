@@ -19,10 +19,7 @@ with open('ip_list', 'r', encoding='utf-8') as file:
 lost_list = []
 for hostname in ip_list:
 	ip, port = hostname.split()
-	comm = "ping -W 10 -c 1 {}"
-	if platform_info == 'macos':
-		comm = "ping -t 10 -c 1 {}"
-	response = os.system(comm.format(ip))
+	response = os.system("nc -w 1 -z -v {} {}".format(ip, port))
 	if response != 0:
 		lost_list.append(hostname)
 ip_list = lost_list
