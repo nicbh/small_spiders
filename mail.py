@@ -46,10 +46,10 @@ if len(lost_list) > 0:
 	    name, addr = parseaddr(s)
 	    return formataddr((Header(name, 'utf-8').encode(), addr))
 
-	from_addr = '18085133818@163.com' 
-	apuwtdh = 'wangyi163'
+	from_addr = '642374509@qq.com' 
+	apuwtdh = 'nmxtrhcsdxthbcch'
 	to_addr = '642374509@qq.com'
-	smtp_server = 'smtp.163.com'
+	smtp_server = 'smtp.qq.com'
 
 	msg = MIMEText(txt, 'plain', 'utf-8')
 	msg['From'] = _format_addr('Ping Robot <%s>' % from_addr)
