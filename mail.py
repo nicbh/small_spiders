@@ -52,14 +52,13 @@ if len(lost_list) > 0:
 	smtp_server = 'smtp.qq.com'
 
 	msg = MIMEText(txt, 'plain', 'utf-8')
-	msg['From'] = _format_addr('Ping Robot <%s>' % from_addr)
-	msg['To'] = _format_addr('Admin <%s>' % to_addr)
-	msg['Subject'] = Header('ip ping warning', 'utf-8').encode()
+	msg['From'] = 'Ping_Robot <%s>' % from_addr
+	msg['To'] = 'Admin <%s>' % to_addr
+	msg['Subject'] = 'ip ping warning'
 
-	server = smtplib.SMTP(smtp_server, 25)
-	server.set_debuglevel(1)
+	server = smtplib.SMTP_SSL(smtp_server)
 	server.login(from_addr, apuwtdh)
-	server.sendmail(from_addr, [to_addr], msg.as_string())
+	server.sendmail(from_addr, to_addr, msg.as_string())
 	server.quit()
 print('end at {}'.format(time.asctime(time.localtime(time.time()))))
 print('------------------------')
