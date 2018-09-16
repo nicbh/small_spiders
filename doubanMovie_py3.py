@@ -9,7 +9,7 @@ from collections import OrderedDict
 
 filehome = ''
 if platform.system() == "Linux":
-    filehome = '/mnt/file/'
+    filehome = '/root/data/files/'
 
 
 def getTime(timestamp=time.time()):
