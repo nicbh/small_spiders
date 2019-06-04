@@ -39,6 +39,8 @@ with open('ip_list','r',encoding='utf-8') as file:
 		print(ssrLink)
 		ssrLink = 'ssr://{}'.format(b_encode(ssrLink))
 		links.append(ssrLink)
+with open('link_list', 'w+', encoding='utf-8') as file:
+	file.write(b_encode('\n'.join(links), False))
 
 # v2ray code
 # datestr = '-{:0>2}{:0>2}'.format(datetime.datetime.now().month, datetime.datetime.now().day)
