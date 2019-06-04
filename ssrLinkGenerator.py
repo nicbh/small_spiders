@@ -37,7 +37,7 @@ def b_encode(string, do_strip=False):
 # 		remarks = b_encode(nodeName)
 # 		ssrLink = '{}:{}:{}:{}:{}:{}/?obfsparam=&protoparam=&remarks={}&group={}'.format(ipAddr, port, protocol, smethod, obfs, password, remarks, group)
 # 		print(ssrLink)
-# 		ssrLink = 'ssr://{}'.format(b_encode(ssrLink))
+# 		ssrLink = 'ssr://{}'.format(b_encode(ssrLink, True))
 # 		links.append(ssrLink)
 # with open('link_list', 'w+', encoding='utf-8') as file:
 # 	file.write(b_encode('\n'.join(links), False))
@@ -73,7 +73,7 @@ with open('ip_list','r',encoding='utf-8') as file:
 		}
 		v2rayNjson = json.dumps(v2rayNobject, ensure_ascii=False, indent=2)
 		# print(v2rayNjson)
-		v2rayNlink = 'vmess://{}'.format(b_encode(v2rayNjson))
+		v2rayNlink = 'vmess://{}'.format(b_encode(v2rayNjson, False))
 		links.append(v2rayNlink)
 
 with open('link', 'w+', encoding='utf-8') as file:
