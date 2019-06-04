@@ -79,5 +79,5 @@ with open('ip_list','r',encoding='utf-8') as file:
 with open('link', 'w+', encoding='utf-8') as file:
 	file.write(b_encode('\n'.join(links), False))
 with open('raw_link', 'w+', encoding='utf-8') as file:
-	file.write(b_encode('\n'.join(links), False))
+	file.write('\n'.join(links))
  		
