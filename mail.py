@@ -40,12 +40,12 @@ for hostname in ip_list:
         lost_list.append(hostname)
 print('lost ip list: ', lost_list)
 # lost_list = []
-acc_list=['34.83.227.169 46736','172.96.244.152 29312','104.238.149.58 14309']
-tmp=set(lost_list).difference(acc_list)
-acc_list=set(acc_list).difference(lost_list)
-lost_list=tmp
+# acc_list=['34.83.227.169 46736','172.96.244.152 29312','104.238.149.58 14309']
+# tmp=set(lost_list).difference(acc_list)
+# acc_list=set(acc_list).difference(lost_list)
+# lost_list=tmp
 
-if len(lost_list) > 0 or len(acc_list)!=0:
+if len(lost_list) > 0: # or len(acc_list)!=0:
     txt = 'ip {} is unconnected at {}'.format(', '.join(["{}({})".format(ip, ip_name[ip]) for ip in lost_list]), time.asctime(time.localtime(time.time())))
     from email import encoders
     from email.header import Header
