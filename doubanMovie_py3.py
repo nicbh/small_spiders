@@ -94,8 +94,8 @@ if __name__ == "__main__":
                 average = interest.find(property="v:average")
                 summ = interest.find(property="v:votes")
                 level = interest.find_all(class_="rating_per")
-                info["average"] = average.text if average is not null else null
-                info["sum"] = summ.text if summ is not null else null
+                info["average"] = average.text if average is not None else None
+                info["sum"] = summ.text if summ is not None else None
                 info["rate_level"] = [x.text for x in level]
                 info["time"] = getTime()
                 infos.append(info)
