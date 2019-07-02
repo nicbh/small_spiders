@@ -31,7 +31,7 @@ def getHtml(url, log, isjson=False, isssl=True):
         "Accept-Encoding": "gzip",
         "Connection": "keep-alive",
         "host": host,
-        "Referer": null
+        "Referer": None
     }
 
     req_timeout = 20
