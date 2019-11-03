@@ -63,12 +63,12 @@ with open('ip_list','r',encoding='utf-8') as file:
 			'add': j_add,
 			'port': j_port,
 			'id': j_id,
-			'aid': '233',
+			'aid': '16',
 			'net': 'tcp',
-			'type': 'none',
-			'host': '',
+			'type': 'http',
+			'host': 'github.com',
 			'path': '',
-			'tls': ''
+			'tls': 'none'
 		}
 		v2rayNjson = json.dumps(v2rayNobject, ensure_ascii=False, indent=2)
 		# print(v2rayNjson)
