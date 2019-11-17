@@ -47,9 +47,9 @@ with open('ip_list','r',encoding='utf-8') as file:
 		if len(line) == 0 or line.startswith('#'):
 			continue
 		item_list = line.split()
-		if len(item_list)!=4:
+		if len(item_list)!=7:
 			continue
-		j_ps, j_add, j_port, j_id = item_list
+		j_ps, j_add, j_port, j_aid, j_host, j_path, j_id = item_list
 		if '/' in j_ps:
 			j_ps = j_ps[0:j_ps.find('/')].strip()
 		index = j_ps.find('(')
@@ -63,11 +63,11 @@ with open('ip_list','r',encoding='utf-8') as file:
 			'add': j_add,
 			'port': j_port,
 			'id': j_id,
-			'aid': '233',
+			'aid': j_aid,
 			'net': 'h2',
 			'type': 'none',
-			'host': j_add,
-			'path': '/blog',
+			'host': j_host if j_host==j_add else '',
+			'path': j_path,
 			'tls': 'tls'
 		}
 		v2rayNjson = json.dumps(v2rayNobject, ensure_ascii=False, indent=2)
