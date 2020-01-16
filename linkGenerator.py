@@ -68,7 +68,7 @@ with open('ip_list','r',encoding='utf-8') as file:
 			'type': 'none',
 			'host': j_host if j_host==j_add else '',
 			'path': j_path if j_path and j_method!='tcp' else '',
-			'tls': 'tls' if j_method!='tcp' else ''
+			'tls': 'tls' if j_method!='tcp' else 'none'
 		}
 		v2rayNjson = json.dumps(v2rayNobject, ensure_ascii=False, indent=2)
 		# print(v2rayNjson)
