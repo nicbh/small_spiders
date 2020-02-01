@@ -2,6 +2,7 @@
 
 GCP-HK(WINDOWS) fxxkwall.icu 443 233 h2 NONE /UXbxfWtM/ 5c87f232-384b-11ea-8bc9-42010aaa0004
 GCP-HK fxxkwall.icu 63533 16 tcp None None ee0ef1c4-3873-11ea-8bc9-42010aaa0004
+GCP-TW tw.fxxkwall.icu 25339 16 tcp None None 441ccb46-44bc-11ea-97e5-42010a8c0002
 GCP-Singapore sg.fxxkwall.icu 443 404 ws sg.fxxkwall.icu /c87deec0/ 369189a4-f520-46fa-a237-1b0508290987
 GCP-SYD syd.fxxkwall.icu 53011 16 tcp None None 74038020-3dc3-11ea-b749-42010a980002
 
